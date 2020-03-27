@@ -1,7 +1,7 @@
 import React from "react";
 import Base from "../components/base";
 
-const Methods = props => {
+const Methods = () => {
     return(
        <Base/>
     )
