@@ -1,17 +1,18 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import { BrowserRouter as Router, Route, Redirect, Switch } from 'react-router-dom';
 import './App.css';
+import Methods from './method/pages/methods';
 
 const App = () => {
   return (
       <main>
-        <h1>HEADER</h1>
         <Router>
           <Switch>
             <Route path="/" exact>
-              {/* <Users /> */}
-              
+            <Methods/>
             </Route>
+
+            
             <Redirect to="/" />
           </Switch>
         </Router>
