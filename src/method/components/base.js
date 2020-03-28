@@ -7,10 +7,16 @@ import Input from "../../shared/components/UIElement/Input";
 
 const Base = props => {
     const [input, showInputHandler] = useState(false);
+    const [method, updateMethodHandler] = useState(null);
 
     // this.handleClick = val => {
     //     showInputHandler(val)
     // }
+
+    function updateMethod(val){
+        console.log(`method: ${val}`)
+        updateMethodHandler(val);
+    }
 
 
     return (
@@ -20,10 +26,8 @@ const Base = props => {
                     <Row className="base-row my-4" >
                         <Col lg={12}>
                             <h1>Helper</h1>
-                            {/* render method buttons */}
-                            {/* handleClick={(v) => this.handleClick(v)} */}
-                            {/* updateInput={showInputHandler} */}
-                            <MethodButton  updateInput={showInputHandler}/>
+                            <hr />
+                            <MethodButton updateInput={showInputHandler} methodChange={updateMethod}/>
                         </Col>
                     </Row>
 
