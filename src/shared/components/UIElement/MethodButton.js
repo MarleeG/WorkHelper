@@ -7,7 +7,10 @@ const MethodButton = props => {
     const methodOptions = [
         { displayText: "Remove Space(s)", name: "remove_space" },
         { displayText: "Remove New Line Character(s)", name: "remove_new_line_char" },
-        { displayText: "Remove Slashes", name: "remove_slashes" }];
+        { displayText: "Remove Slashes", name: "remove_slashes" }
+    ];
+
+
 
     return (
         <Fragment>
@@ -15,14 +18,17 @@ const MethodButton = props => {
                 <strong>
                     <h4 className="my-2">Select a method</h4>
                 </strong>
-                
+
                 <ButtonGroup aria-label="Method Options" size="lg">
                     {methodOptions.map((mthd, idx) => {
                         return (
                             <Button
                                 variant="dark"
                                 key={idx}
-                                onClick={() => { props.updateInput(true); props.methodChange(mthd.name) }}
+                                onClick={() => {
+                                    props.updateInputView(true);
+                                    props.methodChange(mthd.name);
+                                }}
                             >
                                 {mthd.displayText}
                             </Button>
