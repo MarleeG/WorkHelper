@@ -4,6 +4,7 @@ import { ButtonGroup, Button } from 'react-bootstrap';
 
 const MethodButton = props => {
     const methodText = ["Remove Space(s)", "Remove New Line Character(s)", "Remove Slashes"];
+    console.log(props);
 
     return (
         <Fragment>
@@ -12,7 +13,9 @@ const MethodButton = props => {
             <ButtonGroup aria-label="Method Options" size="lg">
                 {methodText.map((mthd, idx) => {
                     return (
-                        <Button variant="dark" key={idx}>{mthd}</Button>
+                        <Button variant="dark" key={idx} onClick={() => props.updateInput(true)}>
+                            {mthd}
+                        </Button>
                     )
                 })}
             </ButtonGroup>
