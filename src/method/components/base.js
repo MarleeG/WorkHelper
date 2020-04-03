@@ -5,6 +5,7 @@ import "./base.css";
 import MethodButton from "../../shared/components/UIElement/MethodButton";
 import Input from "../../shared/components/UIElement/Input";
 import MyTextArea from "../../shared/components/UIElement/MyTextArea";
+import UploadButton from "../../shared/components/UIElement/UploadButton";
 
 // const log = console.log;
 
@@ -13,6 +14,9 @@ const Base = props => {
   const [showTextArea, showTextAreaHandler] = useState(false);
   //   this will keep track of the placeholder shown in the textarea
   const [placeholderText, updatePlaceholderText] = useState(null);
+
+  //   this will handle the UploadButton component
+  const [showUploadButton, showUploadButtonHandler] = useState(false);
 
   let methodSelected = useRef(null);
   let inputVal = useRef(null);
@@ -24,7 +28,6 @@ const Base = props => {
   }
 
   function myInputVal(my_input_val) {
-
     inputVal.current = my_input_val;
 
     switch (methodSelected.current) {
@@ -38,13 +41,19 @@ const Base = props => {
         break;
       case "remove_slashes":
         // remove slashes
+        RemoveSlashes();
         break;
       default:
         alert("This is not an option");
     }
   }
 
+  function RemoveSlashes() {
+    showTextAreaHandler(false);
+  }
+
   function RemoveNewLineChar(myString) {
+    // showUploadButtonHandler(false);
     let newStr = [];
 
     for (let i = 0; i < myString.length; i++) {
@@ -64,8 +73,10 @@ const Base = props => {
   }
 
   function RemoveSpace(input_val) {
-    console.log("Remove Space: ", input_val);
+    // showUploadButtonHandler(false);
+
     let newStr = [];
+
     for (let i = 0; i < input_val.length; i++) {
       let current_char = input_val[i];
       let remove_this_char = " ";
@@ -75,17 +86,9 @@ const Base = props => {
       newStr += current_char;
     }
 
-    console.log(`my new string: ${newStr}`);
-
     newVal.current = newStr;
     showTextAreaHandler(true);
   }
-
-//   function updatePlaceholder(placeholder_text) {
-//     placeholderText.current = placeholder_text;
-//     console.log(placeholder_text);
-//     updatePlaceholderText(placeholder_text);
-//   }
 
   return (
     <Fragment>
@@ -99,6 +102,7 @@ const Base = props => {
                 updateInputView={showInputHandler}
                 methodChange={updateMethod}
                 plcHolder={updatePlaceholderText}
+                showUploadButtonHandler={showUploadButtonHandler}
               />
             </Col>
           </Row>
@@ -106,7 +110,7 @@ const Base = props => {
           {input && (
             <Row>
               <Col lg={12}>
-                <Input getInputVal={myInputVal} pH={placeholderText}/>
+                <Input getInputVal={myInputVal} pH={placeholderText} />
               </Col>
             </Row>
           )}
@@ -114,7 +118,15 @@ const Base = props => {
           {showTextArea && (
             <Row className="mt-5">
               <Col lg={12}>
-                <MyTextArea myNewVal={newVal.current}/>
+                <MyTextArea myNewVal={newVal.current} />
+              </Col>
+            </Row>
+          )}
+
+          {showUploadButton && (
+            <Row className="mt-5">
+              <Col lg={12}>
+                <UploadButton />
               </Col>
             </Row>
           )}
