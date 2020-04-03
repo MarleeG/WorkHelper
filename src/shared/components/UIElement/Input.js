@@ -1,7 +1,6 @@
 import React, { Fragment, useRef } from 'react';
 import { Form, Button } from 'react-bootstrap';
 
-
 import "./Input.css";
 
 const Input = props => {
@@ -22,7 +21,7 @@ const Input = props => {
                         <Form.Control
                             // type="text"
                             as="textarea"
-                            placeholder="Enter value to be updated" 
+                            placeholder={props.pH}
                             ref={inputValue} 
                             className="my-input-textarea autoresizing"
                             />
