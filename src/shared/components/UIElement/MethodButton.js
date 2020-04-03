@@ -5,12 +5,10 @@ import { ButtonGroup, Button } from 'react-bootstrap';
 const MethodButton = props => {
     // const methodOptions = ["Remove Space(s)", "Remove New Line Character(s)", "Remove Slashes"];
     const methodOptions = [
-        { displayText: "Remove Space(s)", name: "remove_space" },
-        { displayText: "Remove New Line Character(s)", name: "remove_new_line_char" },
-        { displayText: "Remove Slashes", name: "remove_slashes" }
+        { displayText: "Remove Space(s)", name: "remove_space", placeholder: "This method will allow you to remove spaces from any string." },
+        { displayText: "Remove New Line Character(s)", name: "remove_new_line_char", placeholder: "This method will remove the new line characters from any string to make it one continuous string." },
+        { displayText: "Remove Slashes", name: "remove_slashes", placeholder: "It has not set been set yet" }
     ];
-
-
 
     return (
         <Fragment>
@@ -28,6 +26,7 @@ const MethodButton = props => {
                                 onClick={() => {
                                     props.updateInputView(true);
                                     props.methodChange(mthd.name);
+                                    props.plcHolder(mthd.placeholder);
                                 }}
                             >
                                 {mthd.displayText}
