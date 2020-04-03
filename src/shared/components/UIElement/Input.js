@@ -1,9 +1,11 @@
 import React, { Fragment, useRef } from 'react';
 import { Form, Button } from 'react-bootstrap';
 
+
 import "./Input.css";
 
 const Input = props => {
+
     const inputValue = useRef(null);
     function handleSubmit(e) {
         e.preventDefault();
@@ -16,9 +18,14 @@ const Input = props => {
             <div className="mt-5 input-form mx-auto">
                 <Form onSubmit={handleSubmit}>
                     <Form.Group controlId="formInput">
+                    {/* aria-label="With textarea" */}
                         <Form.Control
-                            type="text"
-                            placeholder="Enter value to be updated" ref={inputValue} />
+                            // type="text"
+                            as="textarea"
+                            placeholder="Enter value to be updated" 
+                            ref={inputValue} 
+                            className="my-input-textarea autoresizing"
+                            />
                     </Form.Group>
                     <Button variant="dark" type="submit">
                         Submit

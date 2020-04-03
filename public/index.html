@@ -23,8 +23,12 @@
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
 
+  <!-- jQuery -->
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
   <!-- Latest compiled and minified CSS -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
   <title>Helper - MG</title>
 </head>
 
@@ -41,6 +45,52 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
+
+  <script>
+    $(document).ready(function () {
+      // var textarea = document.querySelector(".autoresizing");
+      // textarea = textarea.addEventListener('input', autoResize, false);
+
+      // document.addEventListener('input', function (event) {
+      //   console.log(event.target.tag);
+      //   if (event.target.tagName.toLowerCase() !== 'textarea') return;
+      //   // autoExpand(event.target);
+      //   // autoResize();
+      // }, false);
+
+      // var autoExpand = function (field) {
+      //   // Reset field height
+      //   field.style.height = 'inherit';
+
+      //   var computed = window.getComputedStyle(field);
+      //   // Calculate the height
+      //   var height = parseInt(computed.getPropertyValue('border-top-width'), 10)
+      //     + parseInt(computed.getPropertyValue('padding-top'), 10)
+      //     + field.scrollHeight
+      //     + parseInt(computed.getPropertyValue('padding-bottom'), 10)
+      //     + parseInt(computed.getPropertyValue('border-bottom-width'), 10);
+      // };
+
+      
+
+      // function autoResize() {
+      //   this.style.height = 'auto';
+      //   this.style.height = this.scrollHeight + 'px';
+      // }
+
+
+      // $('.autoresizing').on('input', function () { 
+      //       this.style.height = 'auto'; 
+              
+      //       this.style.height =  
+      //               (this.scrollHeight) + 'px'; 
+      //   }); 
+
+      // $('.autoresizing').autoResize();
+
+
+    });
+  </script>
 </body>
 
 </html>
