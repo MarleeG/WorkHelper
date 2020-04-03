@@ -4,13 +4,18 @@ import { Container, Row, Col } from "react-bootstrap";
 import "./base.css"
 import MethodButton from "../../shared/components/UIElement/MethodButton";
 import Input from "../../shared/components/UIElement/Input";
+import MyTextArea from "../../shared/components/UIElement/MyTextArea";
 
 // const log = console.log;
 
 const Base = props => {
     const [input, showInputHandler] = useState(false);
+
+    const [showTextArea, showTextAreaHandler] = useState(false);
+
     let methodSelected = useRef(null);
     let inputVal = useRef(null);
+    let newVal = useRef(null);
 
     // This option updates which method was selected and assigns it to methodSelected
     function updateMethod(method_selected) {
@@ -48,8 +53,11 @@ const Base = props => {
             newStr += current_char;
         }
 
-        console.log(`my new string: ${newStr}`)
-        return newStr;
+        console.log(`my new string: ${newStr}`);
+
+        newVal.current = newStr;
+        showTextAreaHandler(true);
+        // return newStr;
     }
 
     return (
@@ -66,6 +74,7 @@ const Base = props => {
                         </Col>
                     </Row>
 
+
                     {
                         input && (
                             <Row>
@@ -75,6 +84,18 @@ const Base = props => {
                             </Row>
                         )
                     }
+
+                    {
+                        showTextArea &&
+                        (
+                            <Row className="mt-5">
+                                <Col lg={12}>
+                                    <MyTextArea myNewVal={newVal.current} />
+                                </Col>
+                            </Row>
+                        )
+                    }
+
                 </Container>
             </div>
         </Fragment>

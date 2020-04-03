@@ -1,0 +1,9 @@
+/* .my-textarea-container{
+    height: auto;
+} */
+
+.my-textarea{ 
+    display: block; 
+    overflow: hidden; 
+    resize: none; 
+ } 
