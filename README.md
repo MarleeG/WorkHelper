@@ -1,2 +1,6 @@
 # UNDER CONSTRUCTION
-# WorkHelper
+## WorkHelper
+
+### Status
+
+Folder upload functionality under construction.

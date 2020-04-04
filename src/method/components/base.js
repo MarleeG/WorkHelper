@@ -90,26 +90,6 @@ const Base = props => {
     showTextAreaHandler(true);
   }
 
-  function handleFolderUpload(event) {
-    let output = document.getElementById("listing");
-    let files = event.target.files;
-
-    // console.log(files);
-    // console.log(typeof(files));
-    // files = files.filter(fle => fle.name[0] !== ".");
-    // console.log(files.name);
-
-    for (let i = 0; i < files.length; i++) {
-      let item = document.createElement("li");
-      if (files[i].name[0] !== ".") {
-        // item.innerHTML = files[i].webkitRelativePath;
-        item.innerHTML = files[i].name;
-        console.log(files[i]);
-        output.appendChild(item);
-      }
-    }
-  }
-
   return (
     <Fragment>
       <div className="base-parent">
@@ -146,7 +126,7 @@ const Base = props => {
           {showUploadButton && (
             <Row className="mt-5">
               <Col lg={12}>
-                <UploadButton handleFolderUpload={handleFolderUpload} />
+                <UploadButton  />
               </Col>
             </Row>
           )}
