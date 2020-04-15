@@ -1,5 +1,5 @@
 import React, { Fragment, useState } from "react";
-import { Button, Form, Container, Row, Col } from "react-bootstrap";
+import { Button, Form, Container, Row, Col, Alert } from "react-bootstrap";
 
 import "./UploadButton.css";
 
@@ -12,7 +12,6 @@ const UploadButton = (props) => {
     handleShowDwnBtn(true);
     log(fileContent);
 
-
     handleShowDwnBtn(true);
     for (let a = 0; a < files.length; a++) {
       // ORIGNAL
@@ -22,10 +21,7 @@ const UploadButton = (props) => {
       //   files[a].name
       // );
 
-      placeFileContent(
-        files[a],
-        files[a].name
-      );
+      placeFileContent(files[a], files[a].name);
     }
 
     for (let x = 0; x < files.length; x++) {
@@ -83,16 +79,19 @@ const UploadButton = (props) => {
     // ORIGINAL
     // readFileContent(file)
     //   .then((content) => {
-    //     log(`${name} ::: `, content); 
+    //     log(`${name} ::: `, content);
     //     target.value = content;
     //   })
     //   .catch((error) => console.log(error));
 
-      readFileContent(file)
+    readFileContent(file)
       .then((content) => {
         // log(`${name} ::: `, content);
+        // log(content);
         // updateFileContent = [content ,...fileContent];
-        updateFileContent.push(content);
+        // updateFileContent.push(content);
+        log(typeof content);
+        updateFileContent([...fileContent, content]);
       })
       .catch((error) => console.log(error));
   }
@@ -106,61 +105,80 @@ const UploadButton = (props) => {
     });
   }
 
-  return (
-    <Fragment>
-      <div className="mt-5 upload-button-container mx-auto d-flex justify-content-center">
-        {/* <Button variant="dark" size="lg">
+  const UploadedDataUI = () => {
+    return (
+      <Fragment>
+        <div className="mt-5 upload-button-container mx-auto d-flex justify-content-center">
+          {/* <Button variant="dark" size="lg">
           Upload Folder{"  "}
           <i className="folder outline icon"></i>
         </Button> */}
 
-        {/* <input type="file" webkitdirectory="true" mozdirectory="true" directory="true" /> */}
+          {/* <input type="file" webkitdirectory="true" mozdirectory="true" directory="true" /> */}
 
-        {/* Testing Webkit */}
-        <Form
-          style={{ width: "50%" }}
-          className="d-flex justify-content-center"
-        >
-          <Form.Group>
-            {/* controlId="formFolderUpload" */}
-            <Form.Label>Folder</Form.Label>
-            <Form.Control
-              type="file"
-              webkitdirectory="true"
-              mozdirectory="true"
-              directory="true"
-              // multiple={false}
-              id="input-file"
-              onChange={(e) => handleFolderUpload(e)}
-            />
-            <Form.Text className="text-muted">Upload a folder</Form.Text>
-          </Form.Group>
-        </Form>
-      </div>
+          {/* Testing Webkit */}
+          <Form
+            style={{ width: "50%" }}
+            className="d-flex justify-content-center"
+          >
+            <Form.Group>
+              {/* controlId="formFolderUpload" */}
+              <Form.Label>Folder</Form.Label>
+              <Form.Control
+                type="file"
+                webkitdirectory="true"
+                mozdirectory="true"
+                directory="true"
+                // multiple={false}
+                id="input-file"
+                onChange={(e) => handleFolderUpload(e)}
+              />
+              <Form.Text className="text-muted">Upload a folder</Form.Text>
+            </Form.Group>
+          </Form>
+        </div>
 
-      <hr className="my-3" />
-      <Container className="my-5">
-        <Row>
-          <Col>
-            <h3>This is my UL</h3>
-            <ul id="listing"></ul>
-          </Col>
-        </Row>
-      </Container>
-
-      {showDwnBtn && (
-        <Container className="my-4">
+        <hr className="my-3" />
+        <Container className="my-5">
           <Row>
             <Col>
-              <Button variant="danger" size="lg">
-                Download Updated Files
-              </Button>
+              <h3>This is my UL</h3>
+              <ul id="listing"></ul>
             </Col>
           </Row>
         </Container>
-      )}
-    </Fragment>
-  );
+
+        {showDwnBtn && (
+          <Container className="my-4">
+            <Row>
+              <Col>
+                <Button variant="danger" size="lg">
+                  Download Updated Files
+                </Button>
+              </Col>
+            </Row>
+          </Container>
+        )}
+      </Fragment>
+    );
+  };
+
+  const TemporaryPlace = function () {
+    // return 'Hello';
+    return (
+      <Container>
+        <Row>
+          <Col>
+            <Alert variant='danger'>
+              <h4>This functionality is currently under construction.</h4>
+            </Alert>
+          </Col>
+        </Row>
+      </Container>
+    );
+  };
+
+  return <TemporaryPlace/>;
 };
 
 export default UploadButton;
